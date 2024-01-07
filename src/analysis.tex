@@ -1,0 +1,531 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={French Fry Taste Test},
+  pdfauthor={Miles The Fry Master Roberts},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{French Fry Taste Test}
+\author{Miles The Fry Master Roberts}
+\date{1/6/2024}
+
+\begin{document}
+\maketitle
+
+\hypertarget{load-data}{%
+\section{Load data}\label{load-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list =} \FunctionTok{ls}\NormalTok{())}
+
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(reshape2)}
+\FunctionTok{library}\NormalTok{(scico)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(lme4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: Matrix
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{=} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"../data/french\_fry\_data.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{initial-data-analysis}{%
+\section{Initial data analysis}\label{initial-data-analysis}}
+
+\hypertarget{data-curation}{%
+\subsection{data curation}\label{data-curation}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# remove werid NA rows, don\textquotesingle{}t know why those exist}
+\NormalTok{data }\OtherTok{=}\NormalTok{ data[}\FunctionTok{complete.cases}\NormalTok{(data),]}
+
+\CommentTok{\# normalize data by tester}
+\NormalTok{minmax }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  (x }\SpecialCharTok{{-}} \FunctionTok{min}\NormalTok{(x))}\SpecialCharTok{/}\NormalTok{(}\FunctionTok{max}\NormalTok{(x) }\SpecialCharTok{{-}} \FunctionTok{min}\NormalTok{(x))}
+\NormalTok{\}}
+
+\NormalTok{norm\_scores }\OtherTok{=} \FunctionTok{lapply}\NormalTok{(data[,}\DecValTok{9}\SpecialCharTok{:}\DecValTok{19}\NormalTok{], }\AttributeTok{FUN =}\NormalTok{ minmax)}
+
+\NormalTok{norm\_scores }\OtherTok{=} \FunctionTok{do.call}\NormalTok{(}\StringTok{"cbind"}\NormalTok{, norm\_scores)}
+
+\FunctionTok{names}\NormalTok{(norm\_scores) }\OtherTok{=} \FunctionTok{gsub}\NormalTok{(}\StringTok{"$"}\NormalTok{,}\StringTok{".norm"}\NormalTok{, }\FunctionTok{names}\NormalTok{(norm\_scores))}
+
+\NormalTok{norm\_scores }\OtherTok{=} \FunctionTok{cbind}\NormalTok{(data[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{], norm\_scores)}
+
+\NormalTok{norm\_scores }\OtherTok{=} \FunctionTok{melt}\NormalTok{(norm\_scores, }\AttributeTok{id =} \FunctionTok{names}\NormalTok{(norm\_scores)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{])}
+
+\FunctionTok{names}\NormalTok{(norm\_scores)[}\FunctionTok{names}\NormalTok{(norm\_scores) }\SpecialCharTok{==} \StringTok{"variable"}\NormalTok{] }\OtherTok{=} \StringTok{"tester"}
+
+\FunctionTok{names}\NormalTok{(norm\_scores)[}\FunctionTok{names}\NormalTok{(norm\_scores) }\SpecialCharTok{==} \StringTok{"value"}\NormalTok{] }\OtherTok{=} \StringTok{"norm.score"}
+
+\NormalTok{norm\_scores}\SpecialCharTok{$}\NormalTok{tester }\OtherTok{=} \FunctionTok{gsub}\NormalTok{(}\StringTok{".score"}\NormalTok{, }\StringTok{""}\NormalTok{, norm\_scores}\SpecialCharTok{$}\NormalTok{tester)}
+
+\DocumentationTok{\#\# reshape data to have tester as a factor}
+\NormalTok{raw\_scores }\OtherTok{=} \FunctionTok{melt}\NormalTok{(data, }\AttributeTok{id =} \FunctionTok{names}\NormalTok{(data)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{])}
+
+\FunctionTok{names}\NormalTok{(raw\_scores)[}\FunctionTok{names}\NormalTok{(raw\_scores) }\SpecialCharTok{==} \StringTok{"variable"}\NormalTok{] }\OtherTok{=} \StringTok{"tester"}
+
+\FunctionTok{names}\NormalTok{(raw\_scores)[}\FunctionTok{names}\NormalTok{(raw\_scores) }\SpecialCharTok{==} \StringTok{"value"}\NormalTok{] }\OtherTok{=} \StringTok{"raw.score"}
+
+\NormalTok{raw\_scores}\SpecialCharTok{$}\NormalTok{tester }\OtherTok{=} \FunctionTok{gsub}\NormalTok{(}\StringTok{".score"}\NormalTok{, }\StringTok{""}\NormalTok{, raw\_scores}\SpecialCharTok{$}\NormalTok{tester)}
+
+\DocumentationTok{\#\# bind normalized and raw scores}
+\NormalTok{all\_scores }\OtherTok{=} \FunctionTok{merge}\NormalTok{(raw\_scores, norm\_scores, }\AttributeTok{by =} \FunctionTok{names}\NormalTok{(raw\_scores)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{check-for-wrong-values-outliers}{%
+\subsection{check for wrong values,
+outliers}\label{check-for-wrong-values-outliers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# raw scores}
+\DocumentationTok{\#\# all values should be [0,100]}
+\FunctionTok{ggplot}\NormalTok{(all\_scores, }\FunctionTok{aes}\NormalTok{(tester, raw.score)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# normalized scores, all values should be [0,1]}
+\DocumentationTok{\#\# 0 = each tester\textquotesingle{}s least favorite fry}
+\DocumentationTok{\#\# 1 = each tester\textquotesingle{}s favorite fry}
+\FunctionTok{ggplot}\NormalTok{(all\_scores, }\FunctionTok{aes}\NormalTok{(tester, norm.score)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-3-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# heatmap of scores given by each taste tester}
+\NormalTok{heat\_pal }\OtherTok{=} \FunctionTok{scico}\NormalTok{(}\DecValTok{2}\NormalTok{, }\AttributeTok{palette =} \StringTok{"buda"}\NormalTok{)}
+
+\FunctionTok{ggplot}\NormalTok{(all\_scores, }\FunctionTok{aes}\NormalTok{(Name, tester)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_tile}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ norm.score)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_gradient}\NormalTok{(}\AttributeTok{low =}\NormalTok{ heat\_pal[}\DecValTok{2}\NormalTok{], }\AttributeTok{high =}\NormalTok{ heat\_pal[}\DecValTok{1}\NormalTok{], }\AttributeTok{name =} \StringTok{"Yummy score"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{vjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{hjust=}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y =} \StringTok{"Tester"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Fry"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-3-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"../results/heatmap\_tester\_vs\_fry.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check that I have 11 observations for each fry}
+\FunctionTok{table}\NormalTok{(all\_scores}\SpecialCharTok{$}\NormalTok{fryd)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  A  B  C  D  E  F  G  H  I  J  K 
+## 11 11 11 11 11 11 11 11 11 11 11
+\end{verbatim}
+
+\hypertarget{exploratory-data-analysis}{%
+\section{Exploratory data analysis}\label{exploratory-data-analysis}}
+
+\hypertarget{which-fry-was-liked-the-most}{%
+\subsection{Which fry was liked the
+most?}\label{which-fry-was-liked-the-most}}
+
+Plot the median normalized score for each fry, order the fries by median
+score
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{avg\_like }\OtherTok{=} \FunctionTok{aggregate}\NormalTok{(norm.score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Name, }\AttributeTok{data =}\NormalTok{ all\_scores, }\AttributeTok{FUN =}\NormalTok{ median)}
+
+\NormalTok{avg\_like }\OtherTok{=}\NormalTok{ avg\_like[}\FunctionTok{order}\NormalTok{(avg\_like}\SpecialCharTok{$}\NormalTok{norm.score),]}
+
+\NormalTok{all\_scores}\SpecialCharTok{$}\NormalTok{Name }\OtherTok{=} \FunctionTok{factor}\NormalTok{(all\_scores}\SpecialCharTok{$}\NormalTok{Name, }\AttributeTok{levels =}\NormalTok{ avg\_like}\SpecialCharTok{$}\NormalTok{Name)}
+
+\FunctionTok{ggplot}\NormalTok{(all\_scores, }\FunctionTok{aes}\NormalTok{(Name, norm.score)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{vjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{hjust=}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y =} \StringTok{"Yummy score"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Fry"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"../results/boxplot\_fry\_vs\_score.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\hypertarget{which-fry-was-the-most-divisive}{%
+\subsection{Which fry was the most
+divisive?}\label{which-fry-was-the-most-divisive}}
+
+Here, I define ``divisiveness'' as the amount of variation in a fry's
+normalized score across testers. I quantify variation as the
+interquartile range.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{iqr\_scores }\OtherTok{=} \FunctionTok{aggregate}\NormalTok{(norm.score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Name, all\_scores, IQR)}
+
+\NormalTok{iqr\_scores[}\FunctionTok{order}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{iqr\_scores}\SpecialCharTok{$}\NormalTok{norm.score),]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                    Name norm.score
+## 2              Meijer Crinkle Cut Fries  0.6549145
+## 5                    Meijer Steak Fries  0.4910272
+## 3           Ore-Ida Golden Waffle Fries  0.3800537
+## 7             Alexia Sweet Potato Puffs  0.3601056
+## 1                         McCain Smiles  0.2403846
+## 4  Meijer Regular Cut Fries - Duplicate  0.2234677
+## 9  Ore-Ida Extra Crispy Fast Food Fries  0.2175408
+## 10            Ore-Ida Zesty Curly Fries  0.2160496
+## 8             Ore-Ida Golden Tater Tots  0.2021837
+## 6              Meijer Regular Cut Fries  0.1494236
+## 11          Arby's Seasoned Curly Fries  0.0000000
+\end{verbatim}
+
+\hypertarget{who-used-the-widest-range-of-scores}{%
+\subsection{Who used the widest range of
+scores?}\label{who-used-the-widest-range-of-scores}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{min\_scores }\OtherTok{=} \FunctionTok{aggregate}\NormalTok{(raw.score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ tester, all\_scores, min)}
+
+\NormalTok{max\_scores }\OtherTok{=} \FunctionTok{aggregate}\NormalTok{(raw.score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ tester, all\_scores, max)}
+
+\NormalTok{score\_range }\OtherTok{=} \FunctionTok{merge}\NormalTok{(max\_scores, min\_scores, }\AttributeTok{by =} \StringTok{"tester"}\NormalTok{)}
+
+\CommentTok{\# range used/max possible range {-}\textgreater{} convert to percentage}
+\NormalTok{score\_range}\SpecialCharTok{$}\NormalTok{raw.score.range.used }\OtherTok{=}\NormalTok{ (score\_range}\SpecialCharTok{$}\NormalTok{raw.score.x }\SpecialCharTok{{-}}\NormalTok{ score\_range}\SpecialCharTok{$}\NormalTok{raw.score.y)}\SpecialCharTok{/}\NormalTok{(}\DecValTok{100{-}1}\NormalTok{) }\SpecialCharTok{*} \DecValTok{100}
+
+\NormalTok{score\_range}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       tester raw.score.x raw.score.y raw.score.range.used
+## 1     Alyssa          86          50             36.36364
+## 2       Anna          97          15             82.82828
+## 3   Bradon.W          76          65             11.11111
+## 4  Brandon.B          90          25             65.65657
+## 5    Carolyn          70          15             55.55556
+## 6      Jacob          85          40             45.45455
+## 7       John          89          21             68.68687
+## 8       Nora          82          30             52.52525
+## 9      Riley          94          42             52.52525
+## 10     Robin          80          20             60.60606
+## 11    Sophie          80          37             43.43434
+\end{verbatim}
+
+\hypertarget{who-was-the-most-reliable-taste-tester}{%
+\subsection{Who was the most reliable taste
+tester?}\label{who-was-the-most-reliable-taste-tester}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{first }\OtherTok{=}\NormalTok{ all\_scores[(all\_scores}\SpecialCharTok{$}\NormalTok{Name }\SpecialCharTok{==} \StringTok{"Meijer Regular Cut Fries"}\NormalTok{),]}
+\NormalTok{second }\OtherTok{=}\NormalTok{ all\_scores[(all\_scores}\SpecialCharTok{$}\NormalTok{Name }\SpecialCharTok{==} \StringTok{"Meijer Regular Cut Fries {-} Duplicate"}\NormalTok{),]}
+
+\NormalTok{first\_vs\_second }\OtherTok{=} \FunctionTok{merge}\NormalTok{(first, second, }\AttributeTok{by =} \StringTok{"tester"}\NormalTok{)}
+
+\NormalTok{first\_vs\_second}\SpecialCharTok{$}\NormalTok{reliability }\OtherTok{=} \FunctionTok{abs}\NormalTok{((first\_vs\_second}\SpecialCharTok{$}\NormalTok{raw.score.y }\SpecialCharTok{{-}}\NormalTok{ first\_vs\_second}\SpecialCharTok{$}\NormalTok{raw.score.x)}\SpecialCharTok{/}\NormalTok{first\_vs\_second}\SpecialCharTok{$}\NormalTok{raw.score.x }\SpecialCharTok{*} \DecValTok{100}\NormalTok{)}
+
+\FunctionTok{ggplot}\NormalTok{(first\_vs\_second, }\FunctionTok{aes}\NormalTok{(tester, reliability)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{vjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{hjust=}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Tester"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Percent change in rating of duplicate fry"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"../results/barplot\_duplicate\_fry.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\hypertarget{corelations-between-variables}{%
+\subsection{corelations between
+variables}\label{corelations-between-variables}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# normalize nutrition values by serving size}
+\NormalTok{all\_scores}\SpecialCharTok{$}\NormalTok{calorie.density }\OtherTok{=}\NormalTok{ all\_scores}\SpecialCharTok{$}\NormalTok{Calories.per.serving}\SpecialCharTok{/}\NormalTok{all\_scores}\SpecialCharTok{$}\NormalTok{Serving.size}
+
+\NormalTok{all\_scores}\SpecialCharTok{$}\NormalTok{sodium.density }\OtherTok{=}\NormalTok{ all\_scores}\SpecialCharTok{$}\NormalTok{sodium.per.serving}\SpecialCharTok{/}\NormalTok{all\_scores}\SpecialCharTok{$}\NormalTok{Serving.size}
+
+\NormalTok{all\_scores}\SpecialCharTok{$}\NormalTok{fat.density }\OtherTok{=}\NormalTok{ all\_scores}\SpecialCharTok{$}\NormalTok{fat.per.serving}\SpecialCharTok{/}\NormalTok{all\_scores}\SpecialCharTok{$}\NormalTok{Serving.size}
+
+\CommentTok{\# correlation between score and sodium level, by tester}
+\NormalTok{sodium\_vs\_score }\OtherTok{=}\NormalTok{ all\_scores }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(tester) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{r =} \FunctionTok{cor}\NormalTok{(norm.score, sodium.density, }\AttributeTok{method =} \StringTok{"spearman"}\NormalTok{))}
+
+\NormalTok{sodium\_vs\_score}\SpecialCharTok{$}\NormalTok{r.type }\OtherTok{=} \StringTok{"Sodium density"}
+
+\CommentTok{\# correlation between score and calorie density, by tester}
+\NormalTok{cal\_vs\_score }\OtherTok{=}\NormalTok{ all\_scores }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(tester) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{r =} \FunctionTok{cor}\NormalTok{(norm.score, calorie.density, }\AttributeTok{method =} \StringTok{"spearman"}\NormalTok{))}
+
+\NormalTok{cal\_vs\_score}\SpecialCharTok{$}\NormalTok{r.type }\OtherTok{=} \StringTok{"Calorie density"}
+
+\CommentTok{\# correlation between score and fat density, by tester}
+\NormalTok{fat\_vs\_score }\OtherTok{=}\NormalTok{ all\_scores }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(tester) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{r =} \FunctionTok{cor}\NormalTok{(norm.score, fat.density, }\AttributeTok{method =} \StringTok{"spearman"}\NormalTok{))}
+
+\NormalTok{fat\_vs\_score}\SpecialCharTok{$}\NormalTok{r.type }\OtherTok{=} \StringTok{"Fat density"}
+
+\NormalTok{cor\_plot\_data }\OtherTok{=} \FunctionTok{rbind}\NormalTok{(cal\_vs\_score, sodium\_vs\_score, fat\_vs\_score)}
+
+\CommentTok{\# plot correlations as heatmap}
+\NormalTok{heat\_pal }\OtherTok{=} \FunctionTok{scico}\NormalTok{(}\DecValTok{2}\NormalTok{, }\AttributeTok{palette =} \StringTok{"devon"}\NormalTok{)}
+
+\FunctionTok{ggplot}\NormalTok{(cor\_plot\_data, }\FunctionTok{aes}\NormalTok{(r.type, tester)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_tile}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ r)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_gradient}\NormalTok{(}\AttributeTok{low =}\NormalTok{ heat\_pal[}\DecValTok{2}\NormalTok{], }\AttributeTok{high =}\NormalTok{ heat\_pal[}\DecValTok{1}\NormalTok{], }\AttributeTok{name =} \StringTok{"Spearman correlation"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{vjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{hjust=}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y =} \StringTok{"Tester"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Correlation with score"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"../results/heatmap\_correlation\_with\_scores\_by\_tester.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+\end{verbatim}
+
+\hypertarget{confirmatory-data-analysis}{%
+\section{Confirmatory data analysis}\label{confirmatory-data-analysis}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# simple linear model}
+\CommentTok{\# qc plots look good enough}
+\NormalTok{mod }\OtherTok{=} \FunctionTok{lm}\NormalTok{(norm.score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ calorie.density }\SpecialCharTok{+}\NormalTok{ fat.density }\SpecialCharTok{+}\NormalTok{ sodium.density, all\_scores)}
+\FunctionTok{summary}\NormalTok{(mod)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = norm.score ~ calorie.density + fat.density + sodium.density, 
+##     data = all_scores)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.67708 -0.15367  0.00291  0.16210  0.71024 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)     -0.99215    0.29082  -3.412 0.000887 ***
+## calorie.density  0.67570    0.20349   3.321 0.001199 ** 
+## fat.density     -3.96138    2.04399  -1.938 0.055025 .  
+## sodium.density   0.18388    0.03178   5.786 6.14e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.2649 on 117 degrees of freedom
+## Multiple R-squared:  0.3449, Adjusted R-squared:  0.3281 
+## F-statistic: 20.53 on 3 and 117 DF,  p-value: 9.309e-11
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(mod)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-9-2.pdf}
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-9-3.pdf}
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-9-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# try a mixed effect model}
+\CommentTok{\# it doesn\textquotesingle{}t really work}
+\NormalTok{mod }\OtherTok{=} \FunctionTok{lmer}\NormalTok{(norm.score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ calorie.density }\SpecialCharTok{+}\NormalTok{ fat.density }\SpecialCharTok{+}\NormalTok{ sodium.density }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{|}\NormalTok{tester), all\_scores)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## boundary (singular) fit: see ?isSingular
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(mod)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{analysis_files/figure-latex/unnamed-chunk-9-5.pdf}
+
+\end{document}

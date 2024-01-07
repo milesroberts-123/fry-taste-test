@@ -2,7 +2,9 @@
 title: "French Fry Taste Test"
 author: "Miles The Fry Master Roberts"
 date: "1/6/2024"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 # Load data
@@ -107,7 +109,7 @@ ggplot(all_scores, aes(Name, norm.score)) +
   geom_boxplot() +
   theme_classic() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
-  labs(y = "Normalized score (0 = worst, 1 = best)", x = "Fry")
+  labs(y = "Yummy score", x = "Fry")
 
 ggsave("../results/boxplot_fry_vs_score.png")
 ```
@@ -152,6 +154,8 @@ ggplot(first_vs_second, aes(tester, reliability)) +
   theme_classic() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
   labs(x = "Tester", y = "Percent change in rating of duplicate fry")
+
+ggsave("../results/barplot_duplicate_fry.png")
 ```
 
 ## corelations between variables
