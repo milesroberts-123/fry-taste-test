@@ -1,0 +1,209 @@
+---
+title: "French Fry Taste Test"
+author: "Miles The Fry Master Roberts"
+date: "1/6/2024"
+output: html_document
+---
+
+# Load data
+```{r}
+rm(list = ls())
+
+library(ggplot2)
+library(reshape2)
+library(scico)
+library(dplyr)
+library(lme4)
+
+data = read.csv("../data/french_fry_data.csv")
+```
+
+# Initial data analysis
+
+## data curation
+```{r}
+## remove werid NA rows, don't know why those exist
+data = data[complete.cases(data),]
+
+# normalize data by tester
+minmax = function(x){
+  (x - min(x))/(max(x) - min(x))
+}
+
+norm_scores = lapply(data[,9:19], FUN = minmax)
+
+norm_scores = do.call("cbind", norm_scores)
+
+names(norm_scores) = gsub("$",".norm", names(norm_scores))
+
+norm_scores = cbind(data[1:8], norm_scores)
+
+norm_scores = melt(norm_scores, id = names(norm_scores)[1:8])
+
+names(norm_scores)[names(norm_scores) == "variable"] = "tester"
+
+names(norm_scores)[names(norm_scores) == "value"] = "norm.score"
+
+norm_scores$tester = gsub(".score", "", norm_scores$tester)
+
+## reshape data to have tester as a factor
+raw_scores = melt(data, id = names(data)[1:8])
+
+names(raw_scores)[names(raw_scores) == "variable"] = "tester"
+
+names(raw_scores)[names(raw_scores) == "value"] = "raw.score"
+
+raw_scores$tester = gsub(".score", "", raw_scores$tester)
+
+## bind normalized and raw scores
+all_scores = merge(raw_scores, norm_scores, by = names(raw_scores)[1:9])
+```
+
+## check for wrong values, outliers
+```{r}
+## raw scores
+## all values should be [0,100]
+ggplot(all_scores, aes(tester, raw.score)) +
+  geom_boxplot() +
+  theme_classic()
+
+## normalized scores, all values should be [0,1]
+## 0 = each tester's least favorite fry
+## 1 = each tester's favorite fry
+ggplot(all_scores, aes(tester, norm.score)) +
+  geom_boxplot() +
+  theme_classic()
+
+# heatmap of scores given by each taste tester
+heat_pal = scico(2, palette = "buda")
+
+ggplot(all_scores, aes(Name, tester)) +
+  geom_tile(aes(fill = norm.score)) +
+  scale_fill_gradient(low = heat_pal[2], high = heat_pal[1], name = "Yummy score") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+  labs(y = "Tester", x = "Fry")
+
+ggsave("../results/heatmap_tester_vs_fry.png")
+
+# Check that I have 11 observations for each fry
+table(all_scores$fryd)
+```
+
+# Exploratory data analysis
+
+## Which fry was liked the most?
+
+Plot the median normalized score for each fry, order the fries by median score
+
+```{r}
+avg_like = aggregate(norm.score ~ Name, data = all_scores, FUN = median)
+
+avg_like = avg_like[order(avg_like$norm.score),]
+
+all_scores$Name = factor(all_scores$Name, levels = avg_like$Name)
+
+ggplot(all_scores, aes(Name, norm.score)) +
+  geom_boxplot() +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+  labs(y = "Normalized score (0 = worst, 1 = best)", x = "Fry")
+
+ggsave("../results/boxplot_fry_vs_score.png")
+```
+
+## Which fry was the most divisive?
+
+Here, I define "divisiveness" as the amount of variation in a fry's normalized score across testers. I quantify variation as the interquartile range.
+
+```{r}
+iqr_scores = aggregate(norm.score ~ Name, all_scores, IQR)
+
+iqr_scores[order(-iqr_scores$norm.score),]
+```
+
+## Who used the widest range of scores?
+
+```{r}
+min_scores = aggregate(raw.score ~ tester, all_scores, min)
+
+max_scores = aggregate(raw.score ~ tester, all_scores, max)
+
+score_range = merge(max_scores, min_scores, by = "tester")
+
+# range used/max possible range -> convert to percentage
+score_range$raw.score.range.used = (score_range$raw.score.x - score_range$raw.score.y)/(100-1) * 100
+
+score_range
+```
+
+## Who was the most reliable taste tester?
+
+```{r}
+first = all_scores[(all_scores$Name == "Meijer Regular Cut Fries"),]
+second = all_scores[(all_scores$Name == "Meijer Regular Cut Fries - Duplicate"),]
+
+first_vs_second = merge(first, second, by = "tester")
+
+first_vs_second$reliability = abs((first_vs_second$raw.score.y - first_vs_second$raw.score.x)/first_vs_second$raw.score.x * 100)
+
+ggplot(first_vs_second, aes(tester, reliability)) +
+  geom_bar(stat = "identity") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+  labs(x = "Tester", y = "Percent change in rating of duplicate fry")
+```
+
+## corelations between variables
+```{r}
+# normalize nutrition values by serving size
+all_scores$calorie.density = all_scores$Calories.per.serving/all_scores$Serving.size
+
+all_scores$sodium.density = all_scores$sodium.per.serving/all_scores$Serving.size
+
+all_scores$fat.density = all_scores$fat.per.serving/all_scores$Serving.size
+
+# correlation between score and sodium level, by tester
+sodium_vs_score = all_scores %>% group_by(tester) %>% summarise(r = cor(norm.score, sodium.density, method = "spearman"))
+
+sodium_vs_score$r.type = "Sodium density"
+
+# correlation between score and calorie density, by tester
+cal_vs_score = all_scores %>% group_by(tester) %>% summarise(r = cor(norm.score, calorie.density, method = "spearman"))
+
+cal_vs_score$r.type = "Calorie density"
+
+# correlation between score and fat density, by tester
+fat_vs_score = all_scores %>% group_by(tester) %>% summarise(r = cor(norm.score, fat.density, method = "spearman"))
+
+fat_vs_score$r.type = "Fat density"
+
+cor_plot_data = rbind(cal_vs_score, sodium_vs_score, fat_vs_score)
+
+# plot correlations as heatmap
+heat_pal = scico(2, palette = "devon")
+
+ggplot(cor_plot_data, aes(r.type, tester)) +
+  geom_tile(aes(fill = r)) +
+  scale_fill_gradient(low = heat_pal[2], high = heat_pal[1], name = "Spearman correlation") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+  labs(y = "Tester", x = "Correlation with score")
+
+ggsave("../results/heatmap_correlation_with_scores_by_tester.png")
+
+```
+
+# Confirmatory data analysis
+```{r}
+# simple linear model
+# qc plots look good enough
+mod = lm(norm.score ~ calorie.density + fat.density + sodium.density, all_scores)
+summary(mod)
+plot(mod)
+
+# try a mixed effect model
+# it doesn't really work
+mod = lmer(norm.score ~ calorie.density + fat.density + sodium.density + (1|tester), all_scores)
+plot(mod)
+```

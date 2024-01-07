@@ -1,0 +1,19 @@
+Random number,"Random numbers in the interval (0,1) assigned to each fry at the beginning of the study, used to randomly order the fry tests"
+Name,The brand name of the french fries
+fryd,An ID used to blind the taste testers from the french fry name
+Serving size (g),"The size of a french fry serving in grams, as reported on the nutrition facts label"
+Calories per serving,"The number of calories in a serving, as reported on the nutrition facts label"
+sodium per serving (mg),"The amount of sodium per serving in miligrams, as reported on the nutrition facts label"
+fat per serving (g),"The amount of fat per serving in grams, as reported on the nutrition facts label"
+seasoned,"gives whether fries included flavorings besides salt and natural flavor, such as herbs and spices"
+Alyssa score,Score from specific taste tester
+Anna score,Score from specific taste tester
+Brandon Beal Score,Score from specific taste tester
+Bradon Webster score,Score from specific taste tester
+Carolyn score,Score from specific taste tester
+Nora score,Score from specific taste tester
+Riley score,Score from specific taste tester
+Robin score,Score from specific taste tester
+Sophie score,Score from specific taste tester
+Jacob score,Score from specific taste tester
+John score,Score from specific taste tester
